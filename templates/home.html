@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset=utf-8 />
+    <title>Bicycle Parking</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+
+    <!-- Fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Libre+Baskerville:400italic' rel='stylesheet' type='text/css'>
+    <!-- Bootstrap, CSS -->
+    <link rel="stylesheet" href=
+        "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"></link>
+    <link href='//mapbox.com/base/latest/base.css' rel='stylesheet' />
+
+    <link rel="stylesheet" href="/static/css/stylesheet.css">
+
+    <!-- jQuery -->
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
+    <!-- Mapbox, Turf.js -->
+    <script src="http://api.tiles.mapbox.com/mapbox.js/plugins/turf/v2.0.0/turf.min.js"></script>
+
+    <script src='https://api.mapbox.com/mapbox.js/v2.4.0/mapbox.js'></script>
+    <link href='https://api.mapbox.com/mapbox.js/v2.4.0/mapbox.css' rel='stylesheet' />
+
+    <script src='https://api.mapbox.com/mapbox.js/plugins/mapbox-directions.js/v0.4.0/mapbox.directions.js'></script>
+    <script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.2.0/leaflet-omnivore.min.js'></script>
+    <link rel='stylesheet' href='https://api.mapbox.com/mapbox.js/plugins/mapbox-directions.js/v0.4.0/mapbox.directions.css' type='text/css' />
+    <script src='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-draw/v0.2.2/leaflet.draw.js'></script>
+
+</head>
+
+<body>
+
+<nav class="navbar navbar-default" >
+    <div class="navbar-header">
+      <button type="button"
+              class="navbar-toggle collapsed"
+              data-toggle="collapse"
+              data-target="#navbar"
+              aria-expanded="false"
+              aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">SF Bicycle Parking</a>
+
+    </div>
+<!--     <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li><a href="#">Directions</a></li>
+      </ul>
+    </div> -->
+</nav>
+
+
+<div class="container-fluid">
+
+    <div class="col-md-9">
+        <div id='map'></div>
+        <div id='errors'></div>
+    </div>
+
+    <div class="col-md-3">
+        <div id='inputs'></div>
+<!--         <form id='radius'>
+          <label>Filter by Proximity:</label>
+          <input type="text" name="Address" placeholder="501 Stanyan St, San Francisco, CA 94117"><br>
+          <label>Radius:</label><br>
+          <select>
+          <option value="0.5 miles">0.5 miles</option>
+          <option value="1.0 miles">1.0 miles</option>
+          <option value="1.5 miles">1.5 miles</option>
+          <option value="2.0 miles">2.0 miles</option>
+          </select> 
+        </form> -->
+        <div id='directions'>
+            <div id='routes'></div>
+            <div id='instructions'></div>
+        </div>
+    </div>
+
+<script src="static/js/markers.js"></script>
+
+</body>
+</html>
