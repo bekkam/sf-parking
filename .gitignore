@@ -1,0 +1,7 @@
+secrets.sh
+*.pyc
+/drafts
+/env
+*radius.js
+*radius.html
+map.py
