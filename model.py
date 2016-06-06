@@ -1,4 +1,4 @@
-"""Models and database functions for Ratings project."""
+"""Models and database functions for Bicycle Parking project."""
 import json
 from flask_sqlalchemy import SQLAlchemy
 
@@ -29,8 +29,9 @@ class Parking(db.Model):
     @classmethod
     def get_markers(cls):
 
+        result = {"type": "FeatureCollection"}
         features = []
-        for point in cls.query.limit(100):
+        for point in cls.query.limit(3000):
             current = {
                 "type": "Feature",
                 "geometry": {
@@ -43,12 +44,15 @@ class Parking(db.Model):
                     "placement": point.placement,
                     "install date": str(point.install_month) + '/' + str(point.install_year),
                     "racks": point.num_racks,
-                    "spaces": point.num_spaces
+                    "spaces": point.num_spaces,
+                    "marker-size": 'medium',
+                    # "marker-color": '#4C1B8C',
+                    "marker-color": '#cc3300',
+                    "marker-symbol": "bicycle"
                 }
             }
             features.append(current)
-
-        result = {"data": features}
+        result["features"] = features
         return result
 
 ##############################################################################

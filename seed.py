@@ -8,10 +8,16 @@ from server import app
 def load_bike_data():
     """Load bicycle parking data into database"""
 
+    # keep file open until finish looping
     with open("data/Bicycle_Parking__Public.csv", 'rb') as csvfile:
-        csv_data = csv.reader(csvfile, delimiter=',')
 
-        for i, row in enumerate(csv_data):
+        # create a csv reader object
+        csv_reader = csv.reader(csvfile, delimiter=',')
+
+        # ignore header row
+        next(csv_reader)
+
+        for i, row in enumerate(csv_reader):
             if row[0] != '0':
                 year = row[0]
             if row[1] != '0':

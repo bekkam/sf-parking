@@ -29,6 +29,27 @@ def get_markers():
     return jsonify(Parking.get_markers())
 
 
+@app.route('/heatmap')
+def heatmap():
+    """Heatmap."""
+
+    return render_template("heatmap.html")
+
+
+@app.route('/getheatmap')
+def get_heatmap():
+    """Get marker data as json"""
+
+    return jsonify(Parking.get_markers())
+
+
+@app.route('/cluster')
+def cluster():
+    """Marker Clusters."""
+
+    return render_template("markercluster.html")
+
+
 if __name__ == "__main__":
     app.debug = True
     connect_to_db(app)
