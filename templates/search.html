@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<script src='https://api.mapbox.com/mapbox.js/plugins/mapbox-directions.js/v0.4.0/mapbox.directions.js'></script>
+<script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.2.0/leaflet-omnivore.min.js'></script>
+<link rel='stylesheet' href='https://api.mapbox.com/mapbox.js/plugins/mapbox-directions.js/v0.4.0/mapbox.directions.css' type='text/css' />
+<script src='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-draw/v0.2.2/leaflet.draw.js'></script>
+
+<script src="https://api.tiles.mapbox.com/mapbox.js/plugins/turf/v2.0.0/turf.min.js" charset="utf-8"></script>
+
+<div class="container-fluid">
+
+    <div class="col-md-9">
+        <div id='map'></div>
+        <div id='errors'></div>
+
+    </div>
+
+    <div class="col-md-3">
+        <div>
+            <label>To Find Parking In Your Area, Enter Your Current Location and Radius to Search:<br>
+            <input id="address" type="text" placeholder="Location" value="100 mc allister san francisco ca">
+            </label>
+        <!-- </div> -->
+          <label>Radius:<br>
+              <select class="form-control" id="radius_options">
+              <option value="402.336">0.25 miles</option>
+              <option value="804.672">0.5 miles</option>
+              <option value="1609.34">1.0 miles</option>
+              </select><br> 
+            <input id="submit" type="button" value="Submit">
+          </label>
+      </div>
+        <div id='inputs'></div><br>
+
+        <div id='directions'>
+            <div id='routes'></div>
+            <div id='instructions'></div>
+        </div>
+    </div>
+
+
+<script src="static/js/search.js"></script>
+
+
+{% endblock %}

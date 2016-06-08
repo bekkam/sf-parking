@@ -50,8 +50,16 @@ def cluster():
     return render_template("markercluster.html")
 
 
+@app.route('/search')
+def search_radius():
+    """Render page to search parking spots by radius."""
+
+    return render_template("search.html")
+
+
+
 if __name__ == "__main__":
-    app.debug = True
+    # app.debug = True
     connect_to_db(app)
     # DebugToolbarExtension(app)
 
