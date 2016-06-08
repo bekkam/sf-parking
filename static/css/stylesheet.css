@@ -1,12 +1,10 @@
 body { 
     margin:0; 
     padding:0;
-    background-color: #ecf8ec;
-    font-family: 'Libre Baskerville', serif, bold;
-
+    background-color: #5D5073;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    color: #ffffff;
 }
-
-/*font-family: 'Libre Baskerville', serif;*/
 
 /* Directions */
 #inputs,
@@ -16,6 +14,9 @@ body {
     width: 100%;
     max-width: 300px;
     min-width: 200px;
+    background-color: #5D5073;
+    color: #ffffff;
+
 }
 
 #inputs {
@@ -26,11 +27,12 @@ body {
 
 #directions {
     z-index: 99;
-    background: rgba(0,0,0,.8);
+    /*background: rgba(0,0,0,.8);*/
     top: 10px;
     right: 0;
     bottom: 0;
     overflow: auto;
+
 }
 
 #errors {
@@ -70,8 +72,43 @@ body {
   min-height: 400px;
 }
 
+
+/* navbar */
 .navbar-default {
-  padding: 0px 0px;
-  font-family: 'Libre Baskerville', serif, bold;
-  background-color: #ecf8ec;
+    background-color: #5D5073;
+    border-color: #5D5073;
+    font-size: 1.5em;
+
+}
+/* Title */
+.navbar-default .navbar-brand {
+  padding: 15px 15px;
+  color: #ffffff;
+  font-family: 'Yanone Kaffeesatz', sans-serif; font-weight: 700;
+  font-size: 1.5em;
+  /*background-color: #5D5073;*/
+}
+
+.navbar-default .navbar-header :hover {
+  color: #ffffff;
+}
+
+
+/* links */
+.navbar-default .navbar-nav > li > a {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+    color: #ffffff;
+}
+
+
+.navbar-default .navbar-nav > .active > a, 
+.navbar-default .navbar-nav > .active > a:hover, 
+.navbar-default .navbar-nav > .active > a:focus {
+    color: #ffffff;
+    background-color: #5D5073;
 }
