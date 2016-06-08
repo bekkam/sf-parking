@@ -1,30 +1,50 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset=utf-8 />
-<title>Markercluster with Mapbox marker data</title>
-<meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
-<script src='https://api.mapbox.com/mapbox.js/v2.4.0/mapbox.js'></script>
-<link href='https://api.mapbox.com/mapbox.js/v2.4.0/mapbox.css' rel='stylesheet' />
+{% extends 'base.html' %}
+{% block content %}
 
-<script src="http://code.jquery.com/jquery.js"></script>
-<script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-
-<style>
-  body { margin:0; padding:0; }
-  #map { position:absolute; top:0; bottom:0; width:100%; }
-</style>
-</head>
-<body>
+<script src='https://api.mapbox.com/mapbox.js/plugins/mapbox-directions.js/v0.4.0/mapbox.directions.js'></script>
+<script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.2.0/leaflet-omnivore.min.js'></script>
+<link rel='stylesheet' href='https://api.mapbox.com/mapbox.js/plugins/mapbox-directions.js/v0.4.0/mapbox.directions.css' type='text/css' />
+<script src='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-draw/v0.2.2/leaflet.draw.js'></script>
 
 <script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/leaflet.markercluster.js'></script>
 <link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.css' rel='stylesheet' />
 <link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.Default.css' rel='stylesheet' />
 
-<div id='map'></div>
+
+
+<div class="container-fluid">
+
+    <div class="col-md-9">
+        <div id='map'></div>
+        <div id='errors'></div>
+
+    </div>
+
+    <div class="col-md-3">
+        <div>
+            <label>Enter Current Location:<br>
+            <input id="address" type="text" placeholder="Search" value="Cluster page">
+            <input id="submit" type="button" value="Submit">
+            </label>
+        <!-- </div> -->
+          <!-- <input type="text" name="Address" placeholder="Location"><br> -->
+          <label>Filter by Radius:
+              <select>
+              <option value="0.5 miles">0.5 miles</option>
+              <option value="1.0 miles">1.0 miles</option>
+              <option value="1.5 miles">1.5 miles</option>
+              <option value="2.0 miles">2.0 miles</option>
+              </select> 
+        </label>
+      </div>
+        <div id='inputs'></div><br>
+        <div id='directions'>
+            <div id='routes'></div>
+            <div id='instructions'></div>
+        </div>
+    </div>
 
 <script src="static/js/markercluster.js"></script>
 
-</body>
-</html>
 
+{% endblock %}
