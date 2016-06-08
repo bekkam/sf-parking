@@ -1,26 +1,28 @@
 $( document ).ready(function() {
+
+
     L.mapbox.accessToken = 'pk.eyJ1IjoiYmVra2EiLCJhIjoiY2lvdGllNmRuMDBicXVjbThjeWVjZnNxayJ9.HlEvEtM4nNTSonVEtFtaCw';
-    var map = L.mapbox.map('map', 'mapbox.streets', {
+    var map = L.mapbox.map('map', 'mapbox.emerald', {
             zoomControl: true
-        }).setView([37.780, -122.419], 14);
+        }).setView([37.780, -122.419], 13);
 
 
-        // HEATMAP
-        $.getJSON('/getheatmap').done(function(data){ 
-            console.log(data);
-            heat = L.heatLayer([], {
-                radius: 10,
-                blur: 7, 
-                maxZoom: 16
-            });
-            feature_layer = L.mapbox.featureLayer(data);   
-            heat.addTo(map);                            
-            feature_layer.on('click', function(e) {     
-            });
-            feature_layer.eachLayer(function(l) {       
-                heat.addLatLng(l.getLatLng());
-            });        
+    // HEATMAP
+    $.getJSON('/getheatmap').done(function(data){ 
+        console.log(data);
+        heat = L.heatLayer([], {
+            radius: 5,
+            blur: 7, 
+            maxZoom: 16
         });
+        feature_layer = L.mapbox.featureLayer(data);   
+        heat.addTo(map);                            
+        feature_layer.on('click', function(e) {     
+        });
+        feature_layer.eachLayer(function(l) {       
+            heat.addLatLng(l.getLatLng());
+        });        
+    });
 
     // ADD DIRECTIONS PANEL
     // move the attribution control out of the way
@@ -46,4 +48,11 @@ $( document ).ready(function() {
 
     var directionsInstructionsControl = L.mapbox.directions.instructionsControl('instructions', directions)
         .addTo(map);
+
+
+
+    $('#navheat').addClass('active');
+    $('#navmarkercluster').removeClass('active');
+    $('#navsearch').removeClass('active');
+
 });
