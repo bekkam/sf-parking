@@ -2,6 +2,11 @@
 
 A web application to locate bicyle parking racks in San Francisco.  
 
+## Table of Contents
+- [Technologies Used](#Technologies)
+- [Heatmap of Bicycle Parking Locations](#Heatmap)
+- [Parking Details](#Parking)
+- [Find Parking within Specified Radius of an Address](#Viewing)
 
 ## Technologies Used
 
@@ -10,10 +15,8 @@ A web application to locate bicyle parking racks in San Francisco.
 - **Database**: PostgreSQL
 - **APIs**: Mapbox, Google Geocoder, Socrata Open Data API (SODA)
 
-## Features
 
-
-### Heatmap of Bicycle Parking Locations
+## Heatmap of Bicycle Parking Locations
 
 Users can get a high level understanding of which neighborhoods/areas in San Francisco have the highest concentration of parking locations by viewing a heatmap.
 
@@ -21,7 +24,7 @@ Users can get a high level understanding of which neighborhoods/areas in San Fra
 (/docs/static/heatmap.png)
 
 
-### Parking Details
+## Parking Details
 
 For more detailed information on parking locations, users can select the Marker option.  
 
@@ -36,7 +39,7 @@ By zooming in to their desired search location, users can view individual marker
 ![markerclusterzoomin]
 (/docs/static/markerclusterzoomin.png)
 
-### Viewing Markers within a Specified Radius of an Address
+## Find Parking within Specified Radius of an Address
 
 Currently users can narrow their parking location search by inputting a street address, and specifying a search radius.  For accurate results, the app uses Google's geocoding api to obtain the latitude and longitude of a user-specified address.  After creating a marker to represent the user's address, search.js adds a circle object of requested radius to the map's feature layer.  Search.js then uses Mapbox's setFilter method to render only those markers with GeoJson points within the search radius/circle object.
 
